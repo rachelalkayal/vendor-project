@@ -1,0 +1,57 @@
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title= vend.name
+        style
+            include vendorPageStyles.css
+    body
+        div(class="column basic")
+            a(href="/") Back to Home Page 
+            br
+            a(href="/addVendor") Add a Vendor
+            br
+            a(href="/vendors") See Vendors
+            br
+            input(type="text" id="vend-name" class="basic-info" placeholder= vend.name)
+            br
+            input(type="number" id="min-order" class="basic-info" placeholder = "Minimum Order: $" +vend.min_order.toFixed(2))
+            br 
+            input(type="number" id="delivery-fee" class="basic-info" placeholder="Delivery Fee: $" + vend.delivery_fee.toFixed(2))
+       
+        div(class="column supplies" id="supplies")
+            each types, category in supplies
+                h3(id="cat")= category
+                div(id=category)
+                    each item, id in supplies[category]
+                        p #{id}: #{item.name}
+                        p &nbsp&nbsp&nbsp Price: $#{item.price.toFixed(2)} Stock: #{item.stock} 
+                        p &nbsp&nbsp&nbsp #{item.description}
+
+        div(class="column add-new")
+            div(class="new-category")
+                h4 Add a New Category 
+                input(type="text" id="new-category" placeholder="Category")
+                br
+                button(type='button', class="add", onclick='addCategory()') Add Category!
+                brbr
+            div(class="addSupply")
+                select(id="category")
+                    each types, category in supplies
+                        option(id="options" value=category name="categories") #{category} 
+                br
+                input(type="text" class="input" id="name" placeholder="Name")
+                br 
+                input(type="number" class="input" id="stock" placeholder="Stock")
+                br 
+                input(type="number" class="input" id="price" placeholder="Price")
+                br 
+                input(type="text" class="input" id="description" placeholder="Description")
+                br
+                button(type='button', class="add", onclick='addSupply()') Add Supply!
+            br
+            button(type='button', id="save", class="add", onclick='saveData()') Save Information
+                
+        script 
+            include userMods.js

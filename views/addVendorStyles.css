@@ -1,0 +1,29 @@
+#back{
+    display: none;    
+}
+
+body{
+    background-color: rgba(210, 158, 223, 0.767);
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 20px;
+}
+
+#delivery{
+    margin-left: 2%;
+}
+
+#add{
+    border: 2px solid #7d1773;
+    border-radius:30px;
+    margin-top: 2%;
+    padding:1%;
+}
+
+#add:hover {
+    background-color: rgb(83, 9, 120);
+    transition: 0.7s;
+}
+
+#new-vendor{
+    margin-top: 3%;
+}

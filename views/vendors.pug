@@ -1,0 +1,18 @@
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Vendor Page 
+        style
+            include vendorsStyles.css
+    body 
+        a(href="/") Back to Home Page
+        br
+        a(href="/addVendor") Add a New Vendor
+        h3(id='intro') List of All Vendors
+        ul(id='list') 
+            each vendor in info
+               a(href='/vendors/' + vendor.id ) #{vendor.name}
+               |
+               br
